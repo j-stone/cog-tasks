@@ -1,0 +1,63 @@
+A circle is round,y
+Cats like to chase mice ,y
+Leaves change colour in the autumn,y
+Mittens go on your hands,y
+Birds like to eat worms ,y
+You can see stars at night,y
+Pencils write on paper,y
+Sugar tastes very sweet,y
+A giraffe has a long neck,y
+On a tv you can watch shows,y
+Rabbits like to hop,y
+Milk comes from a cow,y
+Some kids ride a bus to school,y
+People like to sit in a chair,y
+Pigs like to play in the mud,y
+A rectangle has four sides,y
+Camels have large humps,y
+A hat goes on your head,y
+People can ride on a horse,y
+A tower is very tall,y
+Plants grow from seeds,y
+A chicken can lay eggs,y
+A monkey has a long tail,y
+You eat at a table,y
+Some cats sleep in the sun,y
+Dogs have two legs,y
+A shape with four sides is a square,y
+In the winter some birds fly south,y
+some kites look like a diamond,y
+Curtains cover a window,y
+A robin is a bird,y
+A fox can drive a truck,n
+Toads live in a couch,n
+A triangle has four corners,n
+A snake is covered with fur,n
+Cats live in the ground,n
+Fire is very cold,n
+A swan has purple feathers,n
+A baby lion is a chick,n
+Trees are made of rock,n
+Most grass is red,n
+Tigers live on a farm,n
+A car can drive on a lake,n
+A bicycle has four wheels,n
+Elephants are usually blue,n
+Mum cooks the food in the bed,n
+Fish can swim in the sky,n
+Flowers come up in the winter,n
+In winter it is very hot,n
+Bears sleep all summer,n
+Turtles can run fast,n
+You wear trousers on your arms,n
+A kitten is a baby dog,n
+Rain makes things dry,n
+You wash clothes in an oven,n
+A parrot can pilot a plane,n
+Rats can read books,n
+Airplanes fly in the water,n
+A sheep says moo,n
+You can make a snowman in the summer,n
+A frog says meow,n
+Ducks wear tennis shoes,n
+You sleep in a piano,n

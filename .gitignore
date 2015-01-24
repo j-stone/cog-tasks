@@ -41,6 +41,8 @@ target/
 .settings/
 
 
-
 #tatooldata
 .tatooldata/
+
+#demo extention
+src/main/resources/tatool/extension/

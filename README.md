@@ -24,5 +24,5 @@ The primary working memory tasks in this project are discussed in a published pa
 
 Stone, J M and Towse, J N 2015 A Working Memory Test Battery: Java-Based Collection of Seven Working Memory Tasks. Journal of Open Research Software 3:e5, DOI: http://dx.doi.org/10.5334/jors.br
 
-If oyu use these tasks in your research please cite this paper as well as the 
+If you use these tasks in your research please cite this paper as well as the 
 original paper outling the Tatool project (DOI: 10.3758/s13428-012-0224-y)

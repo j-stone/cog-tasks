@@ -41,6 +41,10 @@ target/
 .settings/
 
 
+# =====
+# Custom
+# =====
+
 #tatooldata
 .tatooldata/
 

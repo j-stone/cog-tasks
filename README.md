@@ -31,4 +31,5 @@ original paper outlining the Tatool project (DOI: 10.3758/s13428-012-0224-y)
 This repo has more or less everything you need to setup a maven project to start editing the code, however there additional steps:
 
 1) You will likely need to create a src/test/resources directory.
+
 2) The current code depends on some modifications I made to the tatool-core source code. Therefore you will get some Java errors unless you replace the default tatool-core-1.3.2.jar in the maven repository with the version in the core_replace folder. - This was poorly done on my part and in an updated version in the future I plan on removing the necessity of this step. 

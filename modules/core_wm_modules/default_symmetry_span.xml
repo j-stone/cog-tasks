@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+
+	<!-- +++++++++++++++++++++++++++++++++++++++ -->
+	<!-- MODULE SETTINGS -->
+	<!-- +++++++++++++++++++++++++++++++++++++++ -->
+
+	<!--######################################################### MODULE: PROPERTIES #########################################################-->
+	<bean id="moduleProperties" class="org.springframework.beans.factory.config.MapFactoryBean">
+		<property name="sourceMap">
+			<map>
+				<entry key="module.name" value="Symmetry Span" />
+				<entry key="module.version" value="1" />
+				<entry key="module.author" value="Tatool" />
+				<entry key="module.description" value="Java implementation of the symmetry span task" />
+				<entry key="module.execution.display.classname" value="ch.tatool.core.display.swing.SwingExecutionDisplayProvider" />
+				<entry key="module.execution.initializer.classname" value="ch.tatool.core.module.initializer.SpringExecutorInitializer" />
+				<entry key="module.execution.display.regionsContainer" value="true" />
+				<entry key="module.scheduler.classname" value="ch.tatool.core.module.scheduler.AlwaysAllowModuleScheduler" />
+				<entry key="module.info.classname" value="ch.tatool.app.gui.ModuleInfoPanel" />
+			</map>
+		</property>
+	</bean>
+
+	<!--######################################################################################################################################-->	
+	
+
+	<!--######################################################## MODULE: EXPORTERS ########################################################-->
+	<bean id="moduleExporters" class="org.springframework.beans.factory.config.MapFactoryBean">
+		<property name="sourceMap">
+			<map>
+				<entry key="localExporter">
+					<bean class="ch.tatool.app.export.FileDataExporter">
+						<property name="incrementalExport" value="false" />
+						<property name="autoExport" value="false" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+
+	<!--######################################################################################################################################-->
+	
+	
+	
+	
+	
+
+	<!-- ########################################################################################### -->
+	<!-- ########################################################################################### -->
+			<!--############################ GENERAL SETTINGS ############################-->
+	<!-- ########################################################################################### -->
+	<!-- ########################################################################################### -->
+
+	<!-- KEYBOARD HANDLER -->
+	<bean id="keyHandler" class="ch.tatool.core.element.handler.EscapeKeyEventHandler">
+		<property name="allowEscapeKey" value="true" /><!-- allow user to exit module by pressing ESCAPE key -->
+	</bean>
+
+	<!-- STATUS PANEL ON -->
+	<bean id="status_panel_on"
+		class="ch.tatool.core.display.swing.status.DefaultModuleStatusRegionConfigurator">
+		<property name="panels">
+			<list>
+				<util:constant
+					static-field="ch.tatool.core.display.swing.status.StatusPanel.STATUS_PANEL_OUTCOME" />
+				<util:constant
+					static-field="ch.tatool.core.display.swing.status.StatusPanel.STATUS_PANEL_TRIAL" />
+				<util:constant
+					static-field="ch.tatool.core.display.swing.status.StatusPanel.STATUS_PANEL_CUSTOM_ONE" />
+					<!-- for the username to be displayed-->
+			</list>
+		</property>
+	</bean>
+
+	<!-- STATUS PANEL OFF -->
+	<bean id="status_panel_off"
+		class="ch.tatool.core.display.swing.status.DefaultModuleStatusRegionConfigurator">
+		<property name="panels">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<!--######################################################################################################################################-->
+
+	
+	
+	
+	
+	
+	<!-- ########################################################################################### -->
+	<!-- ########################################################################################### -->
+			<!--############################ ITERATOR SETTINGS ############################-->
+	<!-- ########################################################################################### -->
+	<!-- ########################################################################################### -->
+
+	<!-- TASK ITERATORS -->
+
+	<bean id="ss_iterator" class="ch.tatool.core.element.IteratedListSelector">
+		<!-- number of iterations -->
+		<property name="numIterations" value="1" /><!-- Reset by the executable based on 
+		how many trials you set in the options below -->
+	</bean>
+
+
+	<!--######################################################################################################################################-->	
+	
+	
+	
+	
+	
+	
+	
+
+	<!-- ########################################################################################### -->
+	<!-- ########################################################################################### -->
+			<!--############################ TASK SETTINGS ############################-->
+	<!-- ########################################################################################### -->
+	<!-- ########################################################################################### -->
+
+	<!-- COMPLEX SPAN NUMERICAL -->
+	<bean id="symm_span" class="jms.cogtasks.executables.MatrixSpan" >
+		<!-- Don't edit these-->
+		<property name="ComplexSpan" value="1" />
+
+		<!-- These are customisable-->		
+		<property name="spanTwoTrials" value="3" /> <!-- how many trials of span size 2 would you like? -->
+		<property name="spanThreeTrials" value="3" /> <!-- how many trials of span size 3 would you like? -->
+		<property name="spanFourTrials" value="3" /> <!-- how many trials of span size 4 would you like? -->
+		<property name="spanFiveTrials" value="3" /> <!-- how many trials of span size 5 would you like? -->
+		<property name="spanSixTrials" value="3" /> <!-- how many trials of span size 6 would you like? -->
+		<property name="spanSevenTrials" value="3" /> <!-- how many trials of span size 7 would you like? -->
+		<property name="spanEightTrials" value="0" /> <!-- how many trials of span size 8 would you like? -->
+		<property name="spanNineTrials" value="0" /> <!-- how many trials of span size 9 would you like? -->
+		
+		<property name="randomisedTrials" value="0" />
+		<!-- if this is set to 0 then the trial order is not randomised, all span size two trials will be administered, 
+		then span size three, four, five ... etc. 
+		If set to 1 then the order is randomised -->
+		
+		<property name="ScalingFactor" value="60" /> <!-- the application will by default create the overall grid as 
+		large as will fit on the screen. It will then use this scaling factor (treat as a percentage) to resize it. This 
+		allows a reasonable degree of flexibility given the array of different screen-sizes/resolutions available. Set to 
+		"100" if you want the largest possible grid or any other value < 100 to reduce it.-->
+		
+		<property name="gridDimension" value="4" /> <!-- this property sets how many grids there will be. the default 
+		is "4" producing a 4x4 grid. -->
+		
+	</bean>
+
+	<bean id="symm_processing" class="jms.cogtasks.executables.SymmetryProcessingTask" >
+		<!-- These are customisable-->	
+		<property name="GridDimension" value="8" /> <!-- how many squares in the grid? The value (n) here decides (creates 'n x n' grid)-->
+		
+		<!-- The next two properties define lower/upper boundaries for the number of squares to fill when making a symm/non-symm pattern. 
+		Application will pick a random number between these values and use that to create a pattern. The number should not be less than 
+		half the number of squares in the grid. For example an 8x8 grid has 64 squares, therefore the maximum value here should be less 
+		than 32. Essentially decides how populated the patterns will be, it can affect how quickly/easily a user spots the pattern.-->
+		<property name="minSquares" value="10" />
+		<property name="maxSquares" value="20" />
+		
+		<property name="ScalingFactor" value="60" /> <!-- As described above this relates to the size of the grid on screen-->
+		
+	</bean>
+	<!-- END OF TRIAL PAUSE -->
+	<!-- inserts a short pause (blank screen) after each trial for a given duration -->
+	<bean id="last-item" class="ch.tatool.core.executable.HTMLExecutable">
+		<property name="base" value="/jms/cogtasks/instructions/" />
+		<property name="pages">
+			<list>
+				<value>endOfTrial.htm</value>
+			</list>
+		</property>
+		<property name="duration" value="2500" /><!-- change this value (in milliseconds) to how long of a pause you want between trials. -->
+	</bean>
+
+
+	<!--######################################################################################################################################-->	
+	
+	
+	
+	
+	
+	
+	
+
+	<!-- ########################################################################################### -->
+	<!-- ########################################################################################### -->
+			<!--############################ MODULE HIERARCHY ############################-->
+	<!-- ########################################################################################### -->
+	<!-- ########################################################################################### -->
+
+	<bean id="moduleHierarchy" class="ch.tatool.core.element.ListElement">
+
+		<property name="handlers">
+			<list>
+				<bean id="main_iterator" class="ch.tatool.core.element.IteratedListSelector" />
+				<bean
+					class="ch.tatool.core.element.handler.pause.DefaultExecutionPauseHandler">
+					<!-- interval between elements in milliseconds -->
+					<property name="defaultInterElementPauseDuration" value="250" />
+				</bean>
+				<bean class="ch.tatool.core.element.handler.ExecutionFeedbackHandler" />
+				<bean class="ch.tatool.core.element.handler.StatusPanelStateHandler">
+					<property name="resetIds">
+						<list>
+							<util:constant static-field="ch.tatool.core.display.swing.status.StatusPanel.STATUS_PANEL_OUTCOME" />
+						</list>
+					</property>
+					<property name="enableIds">
+						<list>
+							<util:constant static-field="ch.tatool.core.display.swing.status.StatusPanel.STATUS_PANEL_OUTCOME" />
+							<util:constant static-field="ch.tatool.core.display.swing.status.StatusPanel.STATUS_PANEL_TRIAL" />
+							<util:constant static-field="ch.tatool.core.display.swing.status.StatusPanel.STATUS_PANEL_CUSTOM_ONE" />
+						</list>
+					</property>
+					<property name="phase">
+						<util:constant static-field="ch.tatool.exec.ExecutionPhase.PRE_PROCESS" />
+					</property>
+				</bean>
+				<ref bean="keyHandler" />
+			</list>
+		</property>
+
+		<property name="children">
+			<list>
+
+				<bean class="ch.tatool.core.element.ExecutableElement">
+					<property name="executable">
+						<bean class="jms.cogtasks.helperClasses.CodeExecutable" />
+					</property>
+				</bean>				
+
+				<!-- ORDER OF EXECUTION: INSTRUCTIONS - TASK BEGINS - END SCREEN -->
+				<!-- instructions -->
+				<bean class="ch.tatool.core.element.ExecutableElement">
+					<property name="executable">
+						<bean class="jms.cogtasks.helperClasses.HTMLExecutable">
+							<property name="base" value="/jms/cogtasks/instructions/SymmetrySpan/" />
+							<property name="pages">
+								<list>
+									<value>SymmetrySpanInstructions.html</value>
+								</list>
+							</property>
+						</bean>
+					</property>
+				</bean>
+
+				<!-- main task -->
+				<bean id="list" class="ch.tatool.core.element.ListElement">
+				
+					<property name="handlers">
+						<list>
+							<ref bean="ss_iterator" /><!-- using the bean we defined earlier, with the iterator properties selected -->
+						</list>
+					</property>
+
+					<property name="children">
+						<list>
+
+							<!-- status panel on -->
+							<bean class="ch.tatool.core.element.ExecutableElement">
+								<property name="executable">
+									<ref bean="status_panel_on" /><!-- using the bean we defined earlier, with the s-panel properties selected -->
+								</property>
+							</bean>
+
+							<bean id="comp" class="ch.tatool.core.element.CompoundElement">
+
+								<property name="handlers">
+									<list>
+										<bean class="ch.tatool.core.element.CompoundSelector" />
+										<bean class="ch.tatool.core.element.handler.TrialCountHandler" />
+										<bean class="ch.tatool.core.element.handler.DefaultTrialCountEvaluator" />
+									</list>
+								</property>
+
+								<property name="primary">
+									<!-- storage task -->
+									<bean class="ch.tatool.core.element.ExecutableElement">
+										<property name="id" value="exec" />
+										<property name="executable">
+											<ref bean="symm_span" /><!-- using the bean we defined earlier, with the task properties selected -->
+										</property>
+									</bean>
+								</property>								
+
+								<property name="secondary">
+									<!-- processing -->
+									<bean class="ch.tatool.core.element.ExecutableElement">
+										<property name="id" value="exec" />
+										<property name="executable">
+											<ref bean="symm_processing" /><!-- using the bean we defined earlier, with the task properties selected -->
+										</property>
+									</bean>
+								</property>
+								
+							</bean>
+
+							<!-- end of trial pause -->
+							<bean class="ch.tatool.core.element.ExecutableElement">
+								<property name="executable">
+									<ref bean="last-item" />
+								</property>
+							</bean>
+
+						</list>
+					</property>
+				</bean>
+
+				<!-- status panel off -->
+				<bean class="ch.tatool.core.element.ExecutableElement">
+					<property name="executable">
+						<ref bean="status_panel_off" />
+					</property>
+				</bean>
+
+
+				<!-- END -->
+				<bean class="ch.tatool.core.element.ExecutableElement">
+					<property name="executable">
+						<bean class="ch.tatool.core.executable.HTMLExecutable">
+							<property name="base" value="/jms/cogtasks/instructions/" />
+							<property name="pages">
+								<list>
+									<value>endOfModule.htm</value>
+								</list>
+							</property>
+						</bean>
+					</property>
+				</bean>
+
+			</list>
+		</property>
+
+	</bean>
+
+</beans>

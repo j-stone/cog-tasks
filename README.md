@@ -28,7 +28,7 @@ If you use these tasks in your research please cite this paper as well as the
 original paper outlining the Tatool project (DOI: 10.3758/s13428-012-0224-y)
 
 
-This repo has more or less everything you need to setup a maven project to start editing the code, however there additional steps:
+This repo has more or less everything you need to setup a maven project to start editing the code, however there are some additional steps required:
 
 1) You will likely need to create a src/test/resources directory.
 

@@ -512,7 +512,7 @@ public class MatrixSpan extends BlockingAWTExecutable implements DescriptiveProp
 	
 	/*
 	 * the actual number of iterations is not the number of trials you want to run. Each iteration means every 
-	 * time this aprticularly executable should be called. In any one trial it is called more than once, it is 
+	 * time this particular executable should be called. In any one trial it is called more than once, it is 
 	 * called once for each memoranda display and once to run the recall phase for that trial. Therefore rather 
 	 * than have a user add this all up and set it in the XML where mistakes can be made, this method will take 
 	 * the span size trials asked for, calculate numIterations needed and reset the value. Only called at the 

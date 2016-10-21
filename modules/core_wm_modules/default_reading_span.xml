@@ -133,12 +133,14 @@
 		<property name="StimuliType" value="1" />
 		
 		<!-- These are customisable-->
+		<!-- Note: There needs to be a sufficient number of sentences provided in the stimuli file below to provide a unique sentence
+		each time one is required! -->
 		<property name="spanTwoTrials" value="3" /> <!-- how many trials of span size 2 would you like? -->
 		<property name="spanThreeTrials" value="3" /> <!-- how many trials of span size 3 would you like? -->
 		<property name="spanFourTrials" value="3" /> <!-- how many trials of span size 4 would you like? -->
 		<property name="spanFiveTrials" value="3" /> <!-- how many trials of span size 5 would you like? -->
 		<property name="spanSixTrials" value="3" /> <!-- how many trials of span size 6 would you like? -->
-		<property name="spanSevenTrials" value="3" /> <!-- how many trials of span size 7 would you like? -->
+		<property name="spanSevenTrials" value="0" /> <!-- how many trials of span size 7 would you like? -->
 		<property name="spanEightTrials" value="0" /> <!-- how many trials of span size 8 would you like? -->
 		<property name="spanNineTrials" value="0" /> <!-- how many trials of span size 9 would you like? -->
 		<property name="randomisedTrials" value="0" />

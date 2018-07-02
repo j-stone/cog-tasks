@@ -49,16 +49,4 @@ public class BackwardDigitSpan extends WordDigitSpan{
 		currentTrial.setParentId(getId());
 		DataUtils.storeProperties(currentTrial, this);
 	}
-
-    public void changeStatusPanelOutcome(Boolean value) {
-        StatusPanel panelFeedback = StatusRegionUtil.getStatusPanel(StatusPanel.STATUS_PANEL_OUTCOME);
-        if (panelFeedback != null) {
-        	if (value == null) {
-        		panelFeedback.reset();
-        	} else {
-        		panelFeedback.setProperty(StatusPanel.PROPERTY_VALUE, value);
-        	}
-        }
-	}
-
 }

@@ -60,7 +60,7 @@ public class WordDigitSpan extends BlockingAWTExecutable implements
 	
 	private RegionsContainer regionsContainer; 
 	String current_user;	
-	private int StimuliType = 0; //set this using the XML, 1 for digits, 2 for words.//
+	protected int StimuliType = 0; //set this using the XML, 1 for digits, 2 for words.//
 	
 	final Font treb = new Font("Trebuchet MS", 1, 26);
 	final Color fontColor = new Color(0,51,102);
@@ -73,8 +73,8 @@ public class WordDigitSpan extends BlockingAWTExecutable implements
 	private Phase currentPhase;
 	
 	//properties of interest//
-	private IntegerProperty loadProperty = new IntegerProperty("load");
-	private IntegerProperty trialNoProperty = new IntegerProperty("trialNo");
+	protected IntegerProperty loadProperty = new IntegerProperty("load");
+	protected IntegerProperty trialNoProperty = new IntegerProperty("trialNo");
 	
 	//panels//
 	private CenteredTextPanel displayPanel;
@@ -88,8 +88,8 @@ public class WordDigitSpan extends BlockingAWTExecutable implements
 	private static int interResponseDuration = 1000; //blank screen between recalls//
 	
 	//stimuli//
-	private int[] numbers; //if digit span//
-	private String[] words; //if word span//
+	protected int[] numbers; //if digit span//
+	protected String[] words; //if word span//
 	private ArrayList<String> wordBank = new ArrayList<String>(); //method will fill this arraylist with words from an external file//
 	private String WordBankFileName = "";
 	private Random rand;
@@ -110,13 +110,13 @@ public class WordDigitSpan extends BlockingAWTExecutable implements
 	//should the list length be ordered presentation or randomised
 	private int randomisedTrials = 0; //default is 0 which is for in sequence, set to 1 in the XML for randomised order.
 	
-	private int trialCounter = 0;
+	protected int trialCounter = 0;
 	private int memCounter; //counts memoranda presented per trial//
-	private int respCounter; //counts responses given//
-	private int correctResponseDigits; //if digit span//
-	private String correctResponseWord; //if word span//
-	private int givenResponseDigits; //if digit span//
-	private String givenResponseWord; //if word span//
+	protected int respCounter; //counts responses given//
+	protected int correctResponseDigits; //if digit span//
+	protected String correctResponseWord; //if word span//
+	protected int givenResponseDigits; //if digit span//
+	protected String givenResponseWord; //if word span//
 	
 	/*
 	 * need an indicator as to whether this executable is being used to run a simple span task 
@@ -125,8 +125,8 @@ public class WordDigitSpan extends BlockingAWTExecutable implements
 	private int ComplexSpan = 0; //"0" by default, this will be the code for simple span, "1" if complex.//
 	
 	
-	private long startTime;
-	private long endTime;
+	protected long startTime;
+	protected long endTime;
 	
 	/*
 	 * constructor
@@ -359,7 +359,7 @@ public class WordDigitSpan extends BlockingAWTExecutable implements
 		
 	}
 	
-	private void processProperties() {
+	public void processProperties() {
 		switch (StimuliType) {
 		case 1:
 			int stimulus_num = numbers[respCounter];
@@ -435,7 +435,7 @@ public class WordDigitSpan extends BlockingAWTExecutable implements
 	 * Tatool should take care of feedback if I have set the variables and asked for a 
 	 * feedback status panel....look into this.
 	 */
-	private void changeStatusPanelOutcome(Boolean value) {
+	public void changeStatusPanelOutcome(Boolean value) {
         StatusPanel panelFeedback = StatusRegionUtil.getStatusPanel(StatusPanel.STATUS_PANEL_OUTCOME);
         if (panelFeedback != null) {
         	if (value == null) {

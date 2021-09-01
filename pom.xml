@@ -19,6 +19,8 @@
 			<groupId>ch.tatool</groupId>
 			<artifactId>tatool-core</artifactId>
 			<version>1.3.2</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/core_replace/tatool-core-1.3.2.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>ch.tatool</groupId>
